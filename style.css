@@ -1,0 +1,31 @@
+.part-1, .part-2, part-3, .col-1, .col-2 {
+    float: left;
+}
+
+.part-1, .part-2, part-3 {
+    width: 33%;
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+.col-1 {
+    width: 60%;
+    background-color: #EEE;
+}
+
+.col-2 {
+    width: 40%;
+    background-color: #AAA;
+}
+
+table {
+    width: 100%;
+}
+
+tr:hover {
+    cursor: pointer;
+    background-color: #555d68;
+    color: white;
+}
