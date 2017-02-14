@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+	<title></title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+	<div class="part-1">
+		<p class="bold">Two way data binding</p>
+		<label>First name: </label>
+		<input type="text" name="fname" ng-model="yourFName">
+		<p>Hii {{yourFName}}</p>
+	</div>
+
+	<div class="part-2">
+		<p class="bold">From the home controller</p>
+		<div ng-controller="HomeCtrl as hc">
+			{{hc.name}}
+		</div>
+		<p class="bold">From the profile controller second controller</p>
+		<div ng-controller="ProfileCtrl as p">
+			{{p.position}}
+		</div>
+	</div>
+
+	<div class="part-3">
+		<p class="bold">Parent child controller</p>
+		<div ng-controller="HomeCtrl as hc">
+			<div ng-controller="ProfileCtrl as p">
+				<p>Home controller is parent and profile controller is child</p>
+				{{hc.name}} is a {{p.position}}
+				<p>parent can access child but a child can not access parent</p>
+			</div>
+		</div>
+	</div>
+
+	<hr />
+
+	<div ng-controller="UserCtrl as us">
+		<p>use of ng-If, show the below name if and only of the user is selected, the difference between the ng-show, ng-hide and
+			ng-if is that even if the element is not visible it will still be a part of the dom but ng-if will not be a part of dom
+			if its false</p>
+		<h1 ng-if="us.selectedUser">Name of the selected user is {{us.selectedUser.name}}</h1>
+
+		<p>To use ng-click we have to put click in tr of the table where we want to get the user info from, since its only one tr
+			we will put click there and set new property called selectedUser which will refer to 'us' UserCtrl then we will set the
+			value of u that is an individual user and put value in selected users Now we can access the selected user values with
+			coltroller selectedUser
+		</p>
+		<div class="col-1">
+			<p class="bold">Use of in-built directives ng-repeat</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+					</tr>
+				</thead>
+				<p>using ng-class directive, which row we select we want to highlight it and put a dynamic class to it and update if required
+					we will check with a condition whether the class we have to put on element is the one which we selected
+				</p>
+				<p>in ng-class it will first go to square brackets and checks if the condition is valid or not, then it comes to the curley
+					braces and then evaluate the outcome</p>
+				<tbody>
+					<tr ng-repeat="u in us.users" ng-click="us.selectedUser = u" ng-class="{true: 'active', false: ''}[us.selectedUser==u]">
+						<td>{{u.name}}</td>
+						<td>{{u.email}}</td>
+						<td>{{u.phone}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p>both ng-show and ng-hide work on css display property</p>
+		<p>ng-show, ng-hide</p>
+		<p>here the ng-show works on boolean value when ther is nothing this will show as false this is because the u is empty which
+			makes us.slectedUser as empty showing as false and then if we select any user from the table above then the u is set which
+			makes the selectedUser to be selected which makes the condition in ng-show as true and will show the col-2</p>
+		<div class="col-2" ng-show="us.selectedUser">
+			<p>Both the click and the click result display should be under the scope of the controller under which the click directive
+				is defined</p>
+
+			<p class="bold">Use of in-built directives ng-click<br />Details</p>
+			<p>This is the way we can put a image from a service</p>
+			<img ng-src="{{us.selectedUser.imgUrl}}" />
+			<p>Name: {{us.selectedUser.name}}</p>
+			<p>Email: {{us.selectedUser.email}}</p>
+			<p>Phone: {{us.selectedUser.phone}}</p>
+		</div>
+		<p>For ng-hide, this will work opposite to the ng-show, this is a anti locking system where one will only be avaliable</p>
+		<div class="col-2" ng-hide="us.selectedUser">
+			<p>Click on the row to select a value to see the details of the user</p>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>
