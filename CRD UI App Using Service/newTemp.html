@@ -1,0 +1,25 @@
+<!--External template example-->
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="ul in usctrl.people | filter:usctrl.searchTxt">
+            <td>{{ul.id}}</td>
+            <td>{{ul.firstName}}</td>
+            <td>{{ul.lastName}}</td>
+            <td>{{ul.email}}</td>
+            <td>{{ul.phone}}</td>
+            <td>{{ul.city}}</td>
+            <td><button data-ng-click="usctrl.deletePerson($index)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+<head>
+	<title></title>
+	<link rel="stylesheet" href="style.css" />
+	<!--Internal template example-->
+	<script type="text/ng-template" id="newTemp2">
+		<div>
+			<input type="text" data-ng-model="usctrl.newperson.name" placeholder="Name" />
+			<input type="text" data-ng-model="usctrl.newperson.email" placeholder="Email" />
+			<input type="text" data-ng-model="usctrl.newperson.phone" placeholder="phone" />
+		</div>
+		<button type="submit" data-ng-click="usctrl.addPerson()">Add</button>
+	</script>
+</head>
+<body>
+	<p>Day Two</p>
+	<div data-ng-controller="UserCtrl as usctrl">
+		<div ng-include="'newTemp2'"></div>
+		<hr />
+		<input type="search" placeholder="Search Here" data-ng-model="usctrl.searchTxt" />
+		<hr />
+		<div data-ng-include="'newTemp.html'"></div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>

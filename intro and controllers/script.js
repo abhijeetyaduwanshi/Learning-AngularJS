@@ -11,21 +11,24 @@
 	angular.module('myApp').controller('UserCtrl', UserController);
 
 	function HomeController() {
-		this.name = "Abhijeet";
+		var homeCtrl = this;
+		homeCtrl.name = "Abhijeet";
 	};
 
 	function ProfileController() {
-		this.position = "Developer";
+		var proCtrl = this;
+		proCtrl.position = "Developer";
 	};
 
 	function UserController() {
-		this.users = [
+		var usrCtrl = this;
+		usrCtrl.users = [
 			{
 				"id": 1,
 				"name": "Leanne Graham",
 				"username": "Bret",
 				"email": "Sincere@april.biz",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Kulas Light",
 					"suite": "Apt. 556",
@@ -49,7 +52,7 @@
 				"name": "Ervin Howell",
 				"username": "Antonette",
 				"email": "Shanna@melissa.tv",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Victor Plains",
 					"suite": "Suite 879",
@@ -73,7 +76,7 @@
 				"name": "Clementine Bauch",
 				"username": "Samantha",
 				"email": "Nathan@yesenia.net",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Douglas Extension",
 					"suite": "Suite 847",
@@ -97,7 +100,7 @@
 				"name": "Patricia Lebsack",
 				"username": "Karianne",
 				"email": "Julianne.OConner@kory.org",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Hoeger Mall",
 					"suite": "Apt. 692",
@@ -121,7 +124,7 @@
 				"name": "Chelsey Dietrich",
 				"username": "Kamren",
 				"email": "Lucio_Hettinger@annie.ca",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Skiles Walks",
 					"suite": "Suite 351",
@@ -145,7 +148,7 @@
 				"name": "Mrs. Dennis Schulist",
 				"username": "Leopoldo_Corkery",
 				"email": "Karley_Dach@jasper.info",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Norberto Crossing",
 					"suite": "Apt. 950",
@@ -169,7 +172,7 @@
 				"name": "Kurtis Weissnat",
 				"username": "Elwyn.Skiles",
 				"email": "Telly.Hoeger@billy.biz",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Rex Trail",
 					"suite": "Suite 280",
@@ -193,7 +196,7 @@
 				"name": "Nicholas Runolfsdottir V",
 				"username": "Maxime_Nienow",
 				"email": "Sherwood@rosamond.me",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Ellsworth Summit",
 					"suite": "Suite 729",
@@ -217,7 +220,7 @@
 				"name": "Glenna Reichert",
 				"username": "Delphine",
 				"email": "Chaim_McDermott@dana.io",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Dayna Park",
 					"suite": "Suite 449",
@@ -241,7 +244,7 @@
 				"name": "Clementina DuBuque",
 				"username": "Moriah.Stanton",
 				"email": "Rey.Padberg@karina.biz",
-				"imgUrl" : "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
+				"imgUrl": "http://www.unifiedinfotech.net/wp-content/uploads/2014/06/angularjs.png",
 				"address": {
 					"street": "Kattie Turnpike",
 					"suite": "Suite 198",
