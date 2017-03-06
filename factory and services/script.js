@@ -23,12 +23,13 @@
 	angular.module('myApp', []).run(function () {
 		console.log('app init');
 	});
-
 	angular.module('myApp').controller('UserCtrl', UserController);
 
 	// inject the factory from bottom and log it
 	// bet we are not creating the new instance of DataFactory and we are just injecting it
 	// angular will take care of the DataFactory factory = new DataFactory(); thing
+	UserController.$inject = ['DataFactory', 'DataService'];
+	
 	function UserController(DataFactory, DataService) {
 		var usctrl = this;
 		usctrl.name = "Angular is my name";

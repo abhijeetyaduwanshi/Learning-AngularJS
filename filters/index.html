@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+
+<head>
+	<title></title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<p>Day Three</p>
+	<div data-ng-controller="UserCtrl as usctrl">
+		<h1>{{usctrl.name}}</h1>
+
+
+		<p>
+			Currency by default it takes the $ sign and then we can configure them accordingly
+			<br> {{12500 | currency}}
+			<br> {{12500 | currency: 'INR '}}
+		</p>
+
+		<p>
+			Flooting numbers by default it takes 3 places of decimal places and then we can configure them accordingly
+			<br> {{123.456789 | number}}
+			<br> {{123.456789 | number: 2}}
+		</p>
+
+		<p>
+			Strings can be filtered to uppercase and lowercase
+			<br> {{'THIS WAS ORIGINALLY A UPPERCASE STRING' | lowercase}}
+			<br> {{'this was originally a lowercase string' | uppercase}}
+		</p>
+
+		<!--
+			When it comes to date and time conversions its very complicated and confusing to deal with the date and time
+			and also if we store the date and time in the database then its difficult to deal with the correct formate
+			for this the easiest way to deal with it to store the date time in unix time stamp
+			unix time stamp is the number of seconds since Jan 01 1970. (UTC) someting like 1488487341552 take on 3/2/2017 3:40 something PM
+			then we can pull this long number value from the database and then it will be easy to formate it in any possible way
+		-->
+		<p>
+			Date filters are the most important filters
+			<br> {{1488487341552 | date:'yyyy-MM-dd HH:mm:ss Z'}}
+			<br> the month mm will go upper and the minutes mm will go lower, go to https://docs.angularjs.org/api/ng/filter/date
+			for more filter combinations
+		</p>
+
+		<p>orderBy filters</p>
+		<!--the orderBy works by the property name and then the second argument is for reverse, if we set it to true then the order will be reversed-->
+		<!--below is the reverse orderBy-->
+		<!--<tr data-ng-repeat="ul in usctrl.people | orderBy: 'name': true">-->
+		<!--below is the non-reverse orderBy-->
+		<!--<tr data-ng-repeat="ul in usctrl.people | orderBy: 'name'">-->
+		<!--But these are the hard coded and we want to keep them ordered by when we click on the header name-->
+		<!--In order to do so we will initialize a few things-->
+		<table data-ng-init="usctrl.sorter = 'id'; usctrl.reverse = false;">
+			<thead>
+				<tr>
+					<th data-ng-click="usctrl.sorter = 'id'; usctrl.reverse = !usctrl.reverse;">Id</th>
+					<th data-ng-click="usctrl.sorter = 'name'; usctrl.reverse = !usctrl.reverse;">Name</th>
+					<th data-ng-click="usctrl.sorter = 'username'; usctrl.reverse = !usctrl.reverse;">Username</th>
+					<th data-ng-click="usctrl.sorter = 'email'; usctrl.reverse = !usctrl.reverse;">Email</th>
+					<th data-ng-click="usctrl.sorter = 'phone'; usctrl.reverse = !usctrl.reverse;">Phone</th>
+					<th data-ng-click="usctrl.sorter = 'website'; usctrl.reverse = !usctrl.reverse;">Website</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="ul in usctrl.people | orderBy:usctrl.sorter:usctrl.reverse">
+					<td>{{ul.id}}</td>
+					<td>{{ul.name}}</td>
+					<td>{{ul.username}}</td>
+					<td>{{ul.email}}</td>
+					<td>{{ul.phone}}</td>
+					<td>{{ul.website}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>Custome filters used phone as the example, extra function is written for this in the script</p>
+		<table data-ng-init="usctrl.sorter1 = 'phone'; usctrl.reverse1 = false;">
+			<thead>
+				<tr>
+					<th data-ng-click="usctrl.sorter1 = 'phone'; usctrl.reverse1 = !usctrl.reverse1;">Phone</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="ul in usctrl.people | orderBy:usctrl.sorter1:usctrl.reverse1">
+					<td>{{ul.phone | PhoneFilter}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>

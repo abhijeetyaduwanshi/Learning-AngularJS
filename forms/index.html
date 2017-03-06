@@ -1,0 +1,65 @@
+<!--if we include the required field the html attribute then the browser will recognise the fields and give the error messages is the conditions are not met-->
+<!--we can use novalidate in the form element will will avoid the checking above-->
+<!--now we have to handel the errors if the conditions are not met-->
+<!--to do this we have to include the additional library ie the angular message library-->
+<!--to pull the library go to angularjs.org > go to download angular JS > extras browse additional modules and get the angular-messages.min.js and put it below the angular script tag -->
+<!--then go to the script.js file and include 'ngMessages' it in the angular module as a dependency like - angular.module('myApp', ['ngMessages']);-->
+<!--some of the commonly used attributes are-->
+<!--<form name="someForm" novalidate>
+	<input ng-model="" name="" required="" ng-required="" ng-minlength="" ng-maxlength="" ng-pattern="" ng-change=""></input>
+</form>-->
+
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+
+<head>
+	<title></title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<p>Day Three</p>
+	<div data-ng-controller="UserCtrl as usctrl">
+		<h1>{{usctrl.name}}</h1>
+
+		<form action="#" name="myForm" novalidate>
+			<div>
+				<label>User name:</label>
+				<input type="text" name="username" ng-model="usctrl.username" placeholder="Enter your user name here" required ng-minlength="5" ng-maxlength="10">
+				<div class="errors" ng-messages="myForm.username.$error" ng-if="myForm.username.$dirty">
+					<p ng-message="required">Name is required</p>
+					<p ng-message="minlength">Name must be more than 4 characters</p>
+					<p ng-message="maxlength">Name must be less than 11 characters</p>
+				</div>
+			</div>
+
+			<div>
+				<label>Email:</label>
+				<input type="email" name="email" ng-model="usctrl.email" placeholder="Enter your email here" required>
+				<div class="errors" ng-messages="myForm.email.$error" ng-if="myForm.email.$dirty">
+					<p ng-message="required">Email is required</p>
+					<p ng-message="email">Email is invalid</p>
+				</div>
+			</div>
+
+			<div>
+				<label>ZIP:</label>
+				<input type="text" name="zipcode" ng-model="usctrl.zip" placeholder="Enter your zip code here" required ng-pattern="/^[0-9]{5}$/">
+				<div class="errors" ng-messages="myForm.zipcode.$error" ng-if="myForm.zipcode.$dirty">
+					<p ng-message="required">ZIP is required</p>
+					<p ng-message="pattern">ZIP must be 5 digits</p>
+				</div>
+			</div>
+
+			<div>
+				<button type="submit">Submit</button>
+			</div>
+		</form>
+
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.6.2/angular-messages.min.js"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>
