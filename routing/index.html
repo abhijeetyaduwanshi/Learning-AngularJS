@@ -1,0 +1,45 @@
+<!--
+	in the section opening tag use ng-include="'login.html'"
+	so now the ng-include has pulled the login page and set it to the section
+	but we need the li buttons to be clicked and then pull the template so put the ng-click and assign a local property say tmpl in mctrl and assign the templates to it
+	and remove the hardcoded ng-include from the section and put the local tmpl property on mctrl
+	since we didnot click on anything we dont see this on the UI
+	once we click on the li the click gets initiated and the local tmpl property gets invoked and the UI gets updated now all our li work
+	but if we refresh the page its going to go to the first page and not refresh the current page this is because of the url is the same and only the UI is changing but not the url
+	even the back and the forward buttons on the browswrs will not work if the url is not changed
+-->
+<!--
+	this is why we use routing which helps us to divide into logical views and bind different controllers
+	its a combination of a route view and a controller
+	to configure the routing in the app, ngRoute module, external module that you have to download like messages which is angular-route.min.js and pull it in the script below the angular import
+	then go to your script.js to inject it into the myApp module
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Angular Routing</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<nav class="clearfix">
+		<ul>
+			<!--we are actually going to different page and to do this we can use 'a' tag and to put a click event and in the href put the url part that we have decided in the ngRoute config block-->
+			<!--the 'a' tag is one way of doing the route the second common way is the location service which i have used on login page-->
+			<li><a href="#!/login">Login</a></li>
+			<li><a href="#!/home">Home</a></li>
+			<li><a href="#!/profile">Profile</a></li>
+		</ul>
+	</nav>
+	<section ng-view> <!--ng-view is the place where will be pulled the template which understand the routing-->
+	</section>
+	<footer>
+		FOOTER
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.6.2/angular-route.min.js"></script>
+	<script src="script.js"></script>
+	<script src="login-controller.js"></script>
+	<script src="home-controller.js"></script>
+	<script src="profile-controller.js"></script>
+</body>
+</html>

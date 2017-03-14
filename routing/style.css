@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    float: left;
+    margin: 4px;
+    padding: 6px 8px;
+    background-color: #555d68;
+    color: #ffffff;
+    border: 1px solid #555d68;
+}
+
+li:hover {
+    background-color: #ffffff;
+    color: #555d68;
+    cursor: pointer;
+}
+
+section {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    min-height: 200px;
+    padding: 20px;
+}
+
+footer {
+    height: 20px;
+    background-color: #555d68;
+    color: #ffffff;
+}
